@@ -1,0 +1,112 @@
+<h2>Products</h2>
+<ul>
+  <li *ngFor="let prod of prods">
+    {{ prod.id }}
+    <br> {{ prod.name }}
+    <br> {{ prod.group }}
+    <br> {{ prod.type }}
+    <br> {{ prod.category }}
+    <br>
+  </li>
+</ul>
+
+<h2>Discounts</h2>
+<ul>
+  <li *ngFor="let disc of discs">
+          {{ disc.ID }}
+    <br> {{ disc.Name }}
+    <br> {{ disc.Startdate }}
+    <br> {{ disc.Expirydate }}
+    <br> {{ disc.Description }}
+    <br> {{ disc.TermsAndConditions }}
+    <br> {{ disc.DiscountOfferType }}
+    <br>
+  </li>
+</ul>
+
+<h2>Add Discount</h2>
+ 
+<div class="form">
+    <input #discName type="text" placeholder="Name.."/>
+  <label>Startdate:
+    <input #discsd type="date"/>
+  </label>
+  <label>Expirydate:
+    <input #disced type="date"/>
+  </label>
+  <label>Description:
+    <textarea #discd class="textarea" placeholder="Enter a description.."></textarea>
+  </label>
+  <label>Terms and Conditions:
+    <textarea #disctc class="textarea" placeholder="Enter the terms and conditions.."></textarea>
+  </label>
+  <label>DiscountOfferType:
+    <input #discot type="text" placeholder="Type of discount.."/>
+  </label>
+  <label>OrganisationID:
+    <input #discorg type="text" placeholder="Provide the organisations ID.."/>
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button class="button" (click)="add(discName.value, discsd.value, disced.value, discd.value, disctc.value, discot.value, discorg.value);">
+    Add
+  </button>
+</div>
+
+<h2>Update Discount</h2>
+<div *ngFor="let disc of discs">
+  <h2>{{ disc.name | uppercase }}</h2>
+  <div class="form">
+    <label>Name:
+      <input [(ngModel)]="disc.Name" #discName type="text"/>
+    </label>
+    <label>Startdate:
+      <input [(ngModel)]="disc.Startdate" #discsd type="text"/>
+    </label>
+    <label>Expirydate:
+      <input [(ngModel)]="disc.Expirydate" #disced type="text"/>
+    </label>
+    <label>Description:
+      <textarea [(ngModel)]="disc.Description" #discd></textarea>
+    </label>
+    <label>TermsAndConditions:
+      <textarea [(ngModel)]="disc.TermsAndConditions" #disctc></textarea>
+    </label>
+    <label>DiscountOfferType:
+      <input [(ngModel)]="disc.DiscountOfferType" #discot type="text"/>
+    </label>
+    <label>OrganisationID:
+      <input [(ngModel)]="disc.OrganisationID" #discorg type="text"/>
+    </label>
+    <button class="button" (click)="update(disc.ID, disc.ID, discName.value, discsd.value, disced.value, discd.value, disctc.value, discot.value, discorg.value)">save</button>
+  </div><br><br><br>
+  <hr class="style-seven">
+</div> 
+
+<h2>Delete Discount</h2>
+<div class="form">
+<table class="table">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Startdate</th>
+    <th>Expirydate</th>
+    <th>Description</th>
+    <th>Terms and Conditions</th>
+    <th>Discount offer type</th>
+  </tr>
+
+
+  <tr *ngFor="let disc of discs">
+    <td> {{ disc.ID }} </td>
+    <td> {{ disc.Name }}</td>
+    <td> {{ disc.Startdate }}</td>
+    <td> {{ disc.Expirydate }} </td>
+    <td> {{ disc.Description }}</td>
+    <td> {{ disc.TermsAndConditions }}</td>
+    <td> {{ disc.DiscountOfferType }}
+    <td><button class="btn btn-danger" (click)="deleteDisc(disc.ID)">Delete</button></td>
+  </tr>
+</table>
+</div>
+<br><br>
+

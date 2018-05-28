@@ -1,0 +1,30 @@
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<div class="jumbotron bg-transparent text-center">
+  <div *ngIf="!user" class="container">
+    <h6 class="card-header">
+      Please login!
+    </h6>
+    <div class="card-block">
+      <p class="card-text">Sign in with</p>
+    </div>
+    <div class="card-block">
+      <button class="fa fa-google" (click)="signInWithGoogle()"></button>
+      <button class="fa fa-facebook" (click)="signInWithFB()"></button>
+      <button class="fa fa-linkedin" (click)="signInWithLinkedIn()"></button>
+    </div>
+  </div>
+  <div *ngIf="user" class="card text-center">
+    <h6 class="card-header">
+      Social Login Demo
+    </h6>
+    <div class="card-block"></div>
+    <img class="card-img-top img-responsive photo" src="{{ user.photoUrl }}">
+    <div class="card-block">
+      <h4 class="card-title">{{ user.name }}</h4>
+      <p class="card-text">{{ user.email }}</p>
+    </div>
+    <div class="card-block">
+      <button class="btn btn-danger" (click)="signOut()">Sign out</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="header">
+  <h2>
+    <span>CONTACT US </span>
+  </h2>
+</div>
+<div class="container">
+  <form action="">
+
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" placeholder="Provide your name..">
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="Provide your email..">
+
+    <label for="country">Country</label>
+    <select id="country" name="country">
+      <option value="britain">Britain</option>
+      <option value="sweden">Sweden</option>
+      <option value="usa">USA</option>
+    </select>
+
+    <label for="subject">Subject</label>
+    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+    <input type="submit" value="Submit" onclick="">
+
+  </form>
+</div>
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
